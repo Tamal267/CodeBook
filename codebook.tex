@@ -4,6 +4,17 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{xcolor} 
+\usepackage{amsmath}
+
+\usepackage{fancyhdr}           
+\pagestyle{fancy}               
+
+\fancyhf{}
+
+\fancyhead[L]{Competitive Programmer’s CodeBook} 
+\fancyhead[R]{MIST\_EaglesExpr} 
+\fancyfoot[C]{\thepage}
+
 
 \lstset{
     language=C++,                   
@@ -46,6 +57,10 @@ Shihab Ahmed, 202314049
     \item[Python FastIO] \hfill \break
     import sys; \\
     input = sys.stdin.readline
+    \item[Input From File] \hfill \break
+    freopen("input.txt", "r", stdin);
+    \item[Python Array Input] \hfill \break
+    list(map(int, input().split()))
 \end{description}
 
 \section{Formula}
@@ -174,6 +189,29 @@ Shihab Ahmed, 202314049
     \item \(1^2+2^2+3^2+...+n^2=\frac{n(n+1)(2n+1)}{6}\)
     \item \(1^3+2^3+3^3+...+n^3=(\frac{n(n+1)}{2})^2\)
 \end{itemize}
+
+		\subsection{Miscellaneous}
+\begin{itemize}
+	\item \(2^{100} = 2^{50} * 2^{50}\)
+	\item \( 
+	\begin{bmatrix}
+		F_n\\
+		F_{n-1}
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		1 & 1\\
+		1 & 0
+	\end{bmatrix} ^ {n-1}
+	\begin{bmatrix}
+		F_1\\
+		F_0
+	\end{bmatrix}
+	\)
+	\item \(
+	logn! = log1 +log2+...+logn
+	\)
+\end{itemize}
+
 
 \section{Graph Theory}
 All about graph.
@@ -964,6 +1002,72 @@ void phiCalc() {
 int logab (int a, int b){
   return log2(a) / log2(b);
 }
+\end{lstlisting}
+
+\section{Dynamic Programming}
+\subsection{LCS}
+\begin{lstlisting}
+string s, t;
+vector<vector<int>> dp(3003, vector<int>(3003, -1));
+vector<vector<int>> mark(3003, vector<int>(3003));
+
+int f(int i, int j) {
+	if (i < 0 || j < 0) return 0;
+	if (dp[i][j] != -1) return dp[i][j];
+	int res = 0;
+	if (s[i] == t[j]) {
+		mark[i][j] = 1;
+		res = 1 + f(i - 1, j - 1);
+	}
+	else {
+		int iC = f(i - 1, j);
+		int jC = f(i, j - 1);
+		if (iC > jC) mark[i][j] = 2;
+		else mark[i][j] = 3;
+		res = max(iC, jC);
+	}
+	return dp[i][j] = res;
+}
+
+void printWay(int i, int j) {
+	if (i < 0 || j < 0) return;
+	if (mark[i][j] == 1) printWay(i - 1, j - 1), cout << s[i];
+	else if (mark[i][j] == 2) printWay(i - 1, j);
+	else if (mark[i][j] == 3) printWay(i, j - 1);
+}
+\end{lstlisting}
+
+\subsection{LIS}
+\begin{lstlisting}
+void lis(vector<int> &v) {
+	int n = v.size();
+	vector<int> dp(n + 1, 1), hash(n);
+	int mx = 1, lastInd = 0;
+	for (int i = 0; i < n; i++) {
+		hash[i] = i;
+		for (int prev = 0; prev < i; prev++) {
+			if (v[i] > v[prev] && 1 + dp[prev] > dp[i]) {
+				dp[i] = 1 + dp[prev];
+				hash[i] = prev;
+			}
+		}
+		if (mx < dp[i]) {
+			mx = dp[i];
+			lastInd = i;
+		}
+	}
+	vector<int> printSeq;
+	printSeq.push_back(v[lastInd]);
+	while (hash[lastInd] != lastInd) {
+		lastInd = hash[lastInd];
+		printSeq.push_back(v[lastInd]);
+	}
+	reverse(printSeq.begin(), printSeq.end());
+	cout << mx << "\n";
+	for (int i : printSeq) cout << i << " ";
+	cout << "\n";
+}
+	
 \end{lstlisting}
 \end{multicols}
 \end{document}
