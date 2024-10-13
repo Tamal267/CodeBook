@@ -1,0 +1,6 @@
+# Ignore specific LaTeX auxiliary files
+main*
+
+# Except the main.tex file
+!main.tex
+

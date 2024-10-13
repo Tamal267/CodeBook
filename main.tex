@@ -1,4 +1,5 @@
 \documentclass[10pt, a4paper]{article}
+\usepackage[a4paper, left=1in, right=1in, top=1in, bottom=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{mdframed}
 \usepackage{multicol}
@@ -7,7 +8,7 @@
 \usepackage{amsmath}
 
 \usepackage{fancyhdr}           
-\pagestyle{fancy}               
+\pagestyle{fancy}   
 
 \fancyhf{}
 
@@ -24,9 +25,48 @@
     stringstyle=\color{orange},      
     numberstyle=\tiny\color{gray},   
     stepnumber=1,                    
-    breaklines=true,                 
+    breaklines=true,  
+    showstringspaces=false,
     tabsize=2                        
 }
+\lstdefinestyle{shared}{
+    belowcaptionskip=1\baselineskip,
+    breaklines=true,
+    xleftmargin=\parindent,
+    showstringspaces=false,
+    basicstyle=\fontsize{5.5}{6}\ttfamily,
+}
+\lstdefinestyle{cpp}{
+    style=shared,
+    language=C++,
+    keywordstyle=\bfseries\color{red!22!green!28!blue!50!},
+    commentstyle=\itshape\color{black!60!},
+    identifierstyle=\bfseries\color{red!19!green!42!blue!39!},
+    stringstyle=\bfseries\color{blue!40!green!20!violet!40!},
+}
+\lstdefinestyle{java}{
+    style=shared,
+    language=Java,
+    keywordstyle=\bfseries\color{red!22!green!28!blue!50!},
+    commentstyle=\itshape\color{black!60!},
+    identifierstyle=\bfseries\color{red!19!green!42!blue!39!},
+    stringstyle=\bfseries\color{blue!40!green!20!violet!40!},
+}
+\lstdefinestyle{py}{
+    style=shared,
+    language=Python,
+    keywordstyle=\bfseries\color{red!22!green!28!blue!50!},
+    commentstyle=\itshape\color{black!60!},
+    identifierstyle=\bfseries\color{red!19!green!42!blue!39!},
+    stringstyle=\bfseries\color{blue!40!green!20!violet!40!},
+}
+\lstdefinestyle{txt}{
+    style=shared,
+}
+\lstdefinestyle{vimrc}{
+    stringstyle=\color{black},
+}
+
 
 \title{Competitive Programmer’s CodeBook}
 \author{MIST\_EaglesExpr\\[2cm] Syed Mafijul Islam, 202214105\\
@@ -61,6 +101,8 @@ Shihab Ahmed, 202314049
     freopen("input.txt", "r", stdin);
     \item[Python Array Input] \hfill \break
     list(map(int, input().split()))
+    \item [Vim Setup] \hfill
+    \lstinputlisting[style=vimrc]{.vimrc}
 \end{description}
 
 \section{Formula}
@@ -190,28 +232,27 @@ Shihab Ahmed, 202314049
     \item \(1^3+2^3+3^3+...+n^3=(\frac{n(n+1)}{2})^2\)
 \end{itemize}
 
-		\subsection{Miscellaneous}
+\subsection{Miscellaneous}
 \begin{itemize}
 	\item \(2^{100} = 2^{50} * 2^{50}\)
 	\item \( 
-	\begin{bmatrix}
-		F_n\\
-		F_{n-1}
-	\end{bmatrix} = 
-	\begin{bmatrix}
-		1 & 1\\
-		1 & 0
-	\end{bmatrix} ^ {n-1}
-	\begin{bmatrix}
-		F_1\\
-		F_0
-	\end{bmatrix}
-	\)
-	\item \(
-	logn! = log1 +log2+...+logn
-	\)
+        \begin{bmatrix}
+            F_n\\
+            F_{n-1}
+        \end{bmatrix} = 
+        \begin{bmatrix}
+            1 & 1\\
+            1 & 0
+        \end{bmatrix} ^ {n-1}
+        \begin{bmatrix}
+            F_1\\
+            F_0
+        \end{bmatrix}
+    \)
+    \item \(
+        logn! = log1 +log2+...+logn
+    \)
 \end{itemize}
-
 
 \section{Graph Theory}
 All about graph.
@@ -251,7 +292,7 @@ void dfs(int start)
   visited[start]=2;
 }
 \end{lstlisting}
-\subsection{Dijkstra-Algorithm}
+\subsection{Dijkstra Algorithm}
 \begin{lstlisting}
 void Dijkstra(int start) {
   // vector<pair<int, int>> adj[N];
@@ -276,7 +317,7 @@ void Dijkstra(int start) {
   }
 }
 \end{lstlisting}
-\subsection{Bellman-Ford}
+\subsection{Bellman Ford}
 \begin{lstlisting}
 vector<int> dist;
 vector<int> parent;
@@ -307,7 +348,7 @@ void bellmanFord(int num_of_nd, int src) {
   cout << endl;
 }
 \end{lstlisting}
-\subsection{Floyed-Warshall Algorithm}
+\subsection{Floyed Warshall Algorithm}
 \begin{lstlisting}
 typedef double T;
 typedef vector<T> VT;
@@ -333,7 +374,7 @@ bool FloydWarshall(VVT &w, VVI &prev) {
   return true;
 }
 \end{lstlisting}
-\subsection{Kruskal-Algorithm\\(MST)}
+\subsection{Kruskal Algorithm (MST \allowbreak)}
 \begin{lstlisting}
 vector<pair<int, pair<int, int>>> Krushkal(vector<pair<int, pair<int, int>>> &edges, int n) {
   sort(edges.begin(), edges.end());
@@ -348,7 +389,7 @@ vector<pair<int, pair<int, int>>> Krushkal(vector<pair<int, pair<int, int>>> &ed
   return ans;
 }
 \end{lstlisting}
-\subsection{Prims-Algorithm\\(MST)}
+\subsection{Prims Algorithm (MST \allowbreak)}
 \begin{lstlisting}
 void Prims(int start) {
   // map<int, vector<pair<int, int>>> adj, ans;
@@ -371,7 +412,7 @@ void Prims(int start) {
   }
 }
 \end{lstlisting}
-\subsection{Strongly-Connected-Components}
+\subsection{Strongly Connected Components}
 \begin{lstlisting}
 vector<bool> visited; // keeps track of which vertices are already visited
 
@@ -602,46 +643,59 @@ void update(int ind, int low, int high, int node, int val) {
 \end{lstlisting}
 \subsection{Segment Tree Lazy}
 \begin{lstlisting}
-constexpr int N = 100005;
-int arr[N];
+const int N = 1e5 + 5;
+int arr[N], seg[N << 2], lz[N << 2];
 
-struct {
-  int sum, prop;
-} seg[4 * N];
+void pull(int node, int l, int r) {
+	seg[node] = seg[node << 1] + seg[node << 1 | 1];
+}
 
-void build(int ind, int low, int high) {
-  if (low == high) {
-    seg[ind].sum = arr[low];
-    seg[ind].prop = 0;
-    return;
-  }
-  int mid = (low + high) / 2;
-  build(2 * ind + 1, low, mid);
-  build(2 * ind + 2, mid + 1, high);
-  seg[ind].sum = seg[2 * ind + 1].sum + seg[2 * ind + 2].sum;
-  seg[ind].prop = 0;
+void push(int node, int l, int r) {
+	int mid = (l + r) >> 1;
+	lz[node << 1] += lz[node];
+	seg[node << 1] += lz[node] * (mid - l + 1);
+	lz[node << 1 | 1] += lz[node];
+	seg[node << 1 | 1] += lz[node] * (r - mid);
+	lz[node] = 0;
 }
-void update(int ind, int low, int high, int l, int r, int val) {
-  if (l > high || r < low) return;
-  if (low >= l && high <= r) {
-    seg[ind].sum += (high - low + 1) * val;
-    seg[ind].prop += val;
-    return;
-  }
-  int mid = (low + high) / 2;
-  update(2 * ind + 1, low, mid, l, r, val);
-  update(2 * ind + 2, mid + 1, high, l, r, val);
-  seg[ind].sum = seg[2 * ind + 1].sum + seg[2 * ind + 2].sum + (high - low + 1) * seg[ind].prop;
+
+void build(int node, int l, int r) {
+	if(l == r) {
+		seg[node] = arr[l];
+		lz[node] = 0;
+		return;
+	}
+	int mid = (l + r) >> 1;
+	build(node << 1, l, mid);
+	build(node << 1 | 1, mid + 1, r);
+	pull(node, l, r);
 }
-int query(int ind, int low, int high, int l, int r, int carry = 0) {
-  if (l > high || r < low) return 0;
-  if (low >= l && high <= r) {
-    return seg[ind].sum + carry * (high - low + 1);
-  }
-  int mid = (low + high) / 2;
-  int q1 = query(2 * ind + 1, low, mid, l, r, carry + seg[ind].prop);
-  int q2 = query(2 * ind + 2, mid + 1, high, l, r, carry + seg[ind].prop);
-  return q1 + q2;
+
+void update(int node, int l, int r, int ql, int qr, int val) {
+	if(qr < l || r < ql) return;
+	if(ql <= l && r <= qr) {
+		seg[node] += val;
+		lz[node] += val;
+		return;
+	}
+	
+	push(node, l, r);
+	
+	int mid = (l + r) >> 1;
+	update(node << 1, l, mid, ql, qr, val);
+	update(node << 1 | 1, mid + 1, r, ql, qr, val);
+	
+	pull(node, l, r);
+}
+
+int query(int node, int l, int r, int ql, int qr) {
+	if(qr < l || r < ql) return 0;
+	if(ql <= l && r <= qr) return seg[node];
+	
+	push(node, l, r);
+	
+	int mid = (l + r) >> 1;
+	return query(node << 1, l, mid, ql, qr) + query(node << 1 | 1, mid + 1, r, ql, qr);
 }
 \end{lstlisting}
 \subsection{Fenwick Tree}
@@ -794,7 +848,7 @@ vector<int> find_matches(string text, string pat) {
     return ans;
 }
 \end{lstlisting}
-\subsection{Monotonic Stack\\(Immediate Small)}
+\subsection{Monotonic Stack (Immediate \allowbreak Small)}
 \begin{lstlisting}
 for (int i = n - 1; i >= 0; i--) {
   while (!stk.empty() && v[i] >= v[stk.top()]) stk.pop();
@@ -803,6 +857,25 @@ for (int i = n - 1; i >= 0; i--) {
 }
 // 3 1 5 4 10
 // 2 2 4 4 -1
+\end{lstlisting}
+
+\subsection{Kadane’s Algorithm}
+\begin{lstlisting}
+int maxSubArraySum(vector<int> &a) {
+	int size = a.size();
+	int maxTill = INT_MIN, maxEnd = 0;
+	for (int i = 0; i < size; i++) {
+		maxEnd = maxEnd + a[i];
+		if (maxTill < maxEnd) maxTill = maxEnd;
+		if (maxEnd < 0) maxEnd = 0;
+	}
+	return maxTill;
+}
+\end{lstlisting}
+
+\subsection{2D Prefix Sum}
+\begin{lstlisting}
+pref[i][j] = a[i][j] + pref[i - 1][j] + pref[i][j - 1] - pref[i - 1][j - 1];
 \end{lstlisting}
 
 \section{Number Theory/Math}
@@ -1012,62 +1085,62 @@ vector<vector<int>> dp(3003, vector<int>(3003, -1));
 vector<vector<int>> mark(3003, vector<int>(3003));
 
 int f(int i, int j) {
-	if (i < 0 || j < 0) return 0;
-	if (dp[i][j] != -1) return dp[i][j];
-	int res = 0;
-	if (s[i] == t[j]) {
-		mark[i][j] = 1;
-		res = 1 + f(i - 1, j - 1);
-	}
-	else {
-		int iC = f(i - 1, j);
-		int jC = f(i, j - 1);
-		if (iC > jC) mark[i][j] = 2;
-		else mark[i][j] = 3;
-		res = max(iC, jC);
-	}
-	return dp[i][j] = res;
+  if (i < 0 || j < 0) return 0;
+  if (dp[i][j] != -1) return dp[i][j];
+  int res = 0;
+  if (s[i] == t[j]) {
+    mark[i][j] = 1;
+    res = 1 + f(i - 1, j - 1);
+  }
+  else {
+    int iC = f(i - 1, j);
+    int jC = f(i, j - 1);
+    if (iC > jC) mark[i][j] = 2;
+    else mark[i][j] = 3;
+    res = max(iC, jC);
+  }
+  return dp[i][j] = res;
 }
 
 void printWay(int i, int j) {
-	if (i < 0 || j < 0) return;
-	if (mark[i][j] == 1) printWay(i - 1, j - 1), cout << s[i];
-	else if (mark[i][j] == 2) printWay(i - 1, j);
-	else if (mark[i][j] == 3) printWay(i, j - 1);
+  if (i < 0 || j < 0) return;
+  if (mark[i][j] == 1) printWay(i - 1, j - 1), cout << s[i];
+  else if (mark[i][j] == 2) printWay(i - 1, j);
+  else if (mark[i][j] == 3) printWay(i, j - 1);
 }
 \end{lstlisting}
 
 \subsection{LIS}
 \begin{lstlisting}
 void lis(vector<int> &v) {
-	int n = v.size();
-	vector<int> dp(n + 1, 1), hash(n);
-	int mx = 1, lastInd = 0;
-	for (int i = 0; i < n; i++) {
-		hash[i] = i;
-		for (int prev = 0; prev < i; prev++) {
-			if (v[i] > v[prev] && 1 + dp[prev] > dp[i]) {
-				dp[i] = 1 + dp[prev];
-				hash[i] = prev;
-			}
-		}
-		if (mx < dp[i]) {
-			mx = dp[i];
-			lastInd = i;
-		}
-	}
-	vector<int> printSeq;
-	printSeq.push_back(v[lastInd]);
-	while (hash[lastInd] != lastInd) {
-		lastInd = hash[lastInd];
-		printSeq.push_back(v[lastInd]);
-	}
-	reverse(printSeq.begin(), printSeq.end());
-	cout << mx << "\n";
-	for (int i : printSeq) cout << i << " ";
-	cout << "\n";
+  int n = v.size();
+  vector<int> dp(n + 1, 1), hash(n);
+  int mx = 1, lastInd = 0;
+  for (int i = 0; i < n; i++) {
+    hash[i] = i;
+    for (int prev = 0; prev < i; prev++) {
+      if (v[i] > v[prev] && 1 + dp[prev] > dp[i]) {
+        dp[i] = 1 + dp[prev];
+        hash[i] = prev;
+      }
+    }
+    if (mx < dp[i]) {
+      mx = dp[i];
+      lastInd = i;
+    }
+  }
+  vector<int> printSeq;
+  printSeq.push_back(v[lastInd]);
+  while (hash[lastInd] != lastInd) {
+    lastInd = hash[lastInd];
+    printSeq.push_back(v[lastInd]);
+  }
+  reverse(printSeq.begin(), printSeq.end());
+  cout << mx << "\n";
+  for (int i : printSeq) cout << i << " ";
+  cout << "\n";
 }
-	
+
 \end{lstlisting}
 \end{multicols}
 \end{document}
