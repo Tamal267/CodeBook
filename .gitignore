@@ -3,4 +3,4 @@ main*
 
 # Except the main.tex file
 !main.tex
-
+!main.pdf
