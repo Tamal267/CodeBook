@@ -4,6 +4,10 @@ filetype plugin indent on
 syn on
 map gA m'ggVG"+y''
 inoremap {<CR> {<CR>}<Esc>ko
-nnoremap = gg=G
+nnoremap = mzgg=G`z
+vnoremap <C-_> :s/^/\/\/ /<CR>:nohl<CR>
+nnoremap <C-_> :s/^/\/\/ /<CR>:nohl<CR>
+vnoremap <C-\> :s/^\/\/ //<CR>:nohl<CR>
+nnoremap <C-\> :s/^\/\/ //<CR>:nohl<CR>
 autocmd FileType cpp map <F9> :w<CR> :!clear; g++ % -DONPC -o %:r && ./%:r<CR>
 "autocmd FileType cpp map <F9> :w<CR> :!clear; g++ % -o %< && gnome-terminal -- ./%<<CR>
