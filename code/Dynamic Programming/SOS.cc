@@ -24,3 +24,8 @@ void SOS (vector<int> &v) {
 }
 // dp[bits][mask] means left most 'bits' of submasks can be differ
 // for dp[1][11] 01, 00 are now allow because leftmost 1 bit can be differ. 10 and 11 are allowed.
+// for travarsing all the submask of a mask we can use
+// submask = mask
+// do {
+// submask = (submask - 1) & mask
+// } while (submask)
