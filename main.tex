@@ -255,7 +255,7 @@ bitset<size>(val).to_string();
     \item Number of occurrence of a prime number $p$ in $n!$ is \(
     	\lfloor \frac{n}{p} \rfloor +	
     	\lfloor \frac{n}{p^2} \rfloor + 
-    	\lfloor \frac{n}{p^3} \rfloor + ... 0
+    	\lfloor \frac{n}{p^3} \rfloor + ... + 0
     \)
     \item Formula of Catalan number is \(
     	\begin{pmatrix}
@@ -274,6 +274,17 @@ bitset<size>(val).to_string();
     \item Sum of divisors of $p^xq^y$ where $p$ and $q$ are prime is \(
     	(1 + p + p^2 + ... + p^x) (1 + q + q^2 + ... + q^y)
     \)
+    \item Divisibility rules for a number
+    \begin{description}
+	   	\item[3] The sum of its digits is divisible by $3$.
+	   	\item[4] Last two digits form a number that is divisible by $4$.
+	   	\item[5] The number ends in $0$ or $5$.
+	   	\item[6] Divisible by both $2$ and $3$.
+	   	\item[7] A rule for $7$ is to double the last digit, subtract it from the rest of the number, and check if the result is divisible by $7$. Repeat if necessary.
+	   	\item[8]  Last three digits form a number divisible by $8$.
+	   	\item[9] Sum of its digits is divisible by $9$
+	   	\item[11] Difference between the sum of digits of odd places and even places is divisible by $11$.
+   \end{description}
 \end{itemize}
 
 \section{Graph Theory}
