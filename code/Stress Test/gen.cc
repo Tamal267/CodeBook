@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long
+#define i64 long long
 #define accuracy chrono::steady_clock::now().time_since_epoch().count()
 
 mt19937 rng(accuracy);
@@ -11,7 +11,7 @@ int rand(int l, int r) {
   return ludo(rng);
 }
 
-signed main() {
+int main() {
   srand(accuracy);
   int t = 1;
   t = rand(1, 10), cout << t << '\n';

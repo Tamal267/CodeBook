@@ -136,7 +136,7 @@ bitset<size>(val).to_string();
                 Area = \frac{1}{2}|\sum_{n=1}^{n-1}(x_iy_{i+1})|
             \end{math}
 
-            \item[b] 
+            \item[b (Pick's formula)] 
             \begin{math}
                 Area = a + \frac{b}{2} - 1
             \end{math}
@@ -285,6 +285,15 @@ bitset<size>(val).to_string();
 	   	\item[9] Sum of its digits is divisible by $9$
 	   	\item[11] Difference between the sum of digits of odd places and even places is divisible by $11$.
    \end{description}
+   \item Derangement Number\\
+   $n$ person put their hat in a boy. How many way they can collect hat such that no one get their own hat - 
+   \(D_n = (n - 1)D_{n - 2} + (n - 1)D_{n - 1}\)
+   \item Golden Ratio \(
+   	\Phi \approx 1.618034
+   \)
+   \item $n$th Fibonacci number \(
+   	F_n = \frac{\Phi n - ( 1 - \Phi)n} {\sqrt{5}}
+   \)
 \end{itemize}
 
 \section{Graph Theory}
@@ -341,6 +350,9 @@ Different Data Structures.
 \subsection{Set Balancing}
 \lstinputlisting[style=cpp]{code/Data Structures/SetBalancing.cc}
 
+\subsection{Ordered Set}
+\lstinputlisting[style=cpp]{code/Data Structures/OrderedSet.cc}
+
 \section{Algorithms}
 All about algorithms.
 
@@ -362,7 +374,7 @@ All about math.
 \subsection{nCr}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/nCr.cc}
 
-\subsection{Power}
+\subsection{Power} \label{power}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/Power.cc}
 
 \subsection{Miller Rabin}
@@ -400,6 +412,11 @@ All about math.
 \subsection{SOS (Sum \allowbreak Of Subsets)}
 \lstinputlisting[style=cpp]{code/Dynamic Programming/SOS.cc}
 
+
+\section{Strings}
+\subsection{Double Hashing}
+Need power() from \ref{power}
+\lstinputlisting[style=cpp]{code/Strings/hashing.cc}
 
 \section{Stress Testing}
 \subsection{Bash Stress File}
