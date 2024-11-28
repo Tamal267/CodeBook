@@ -60,8 +60,8 @@
 }
 
 
-\title{Competitive Programmer’s CodeBook}
-\author{MIST\_EaglesExpr\\[2cm] Syed Mafijul Islam, 202214105\\
+\title{CodeBook for Competitive Programming}
+\author{MIST\_EaglesExpr\\[1cm] Syed Mafijul Islam, 202214105\\
 Md. Tanvin Sarkar Pallab, 202214062\\
 Shihab Ahmed, 202314049
 }
@@ -74,11 +74,11 @@ Shihab Ahmed, 202314049
 \maketitle
 \thispagestyle{empty}
 
-\newpage
+\begin{multicols}{2}
+
 \tableofcontents
 \newpage
 
-\begin{multicols}{2}
 
 \section{Useful Tips}
 \begin{description}
@@ -289,7 +289,7 @@ bitset<size>(val).to_string();
    $n$ person put their hat in a boy. How many way they can collect hat such that no one get their own hat - 
    \(D_n = (n - 1)D_{n - 2} + (n - 1)D_{n - 1}\)
    \item Golden Ratio \(
-   	\Phi \approx 1.618034
+   	\Phi = (\frac{1 + \sqrt{5}}{2}) \approx 1.618034 
    \)
    \item $n$th Fibonacci number \(
    	F_n = \frac{\Phi n - ( 1 - \Phi)n} {\sqrt{5}}
@@ -347,9 +347,6 @@ Different Data Structures.
 \subsection{TRIE}
 \lstinputlisting[style=cpp]{code/Data Structures/TRIE.cc}
 
-\subsection{Set Balancing}
-\lstinputlisting[style=cpp]{code/Data Structures/SetBalancing.cc}
-
 \subsection{Ordered Set}
 \lstinputlisting[style=cpp]{code/Data Structures/OrderedSet.cc}
 
@@ -380,11 +377,15 @@ All about math.
 \subsection{Miller Rabin}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/MillerRabin.cc}
 
-\subsection{Sieve}
+\subsection{Sieve} \label{sieve}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/Sieve.cc}
 
 \subsection{Bitset Sieve}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/BitsetSieve.cc}
+
+\subsection{Segmented Sieve}
+Need Sieve() from \ref{sieve}
+\lstinputlisting[style=cpp]{code/Number Theory And Maths/SegmentedSieve.cc}
 
 \subsection{Divisors}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/Divisor.cc}
@@ -401,6 +402,9 @@ All about math.
 \subsection{Primes Upto 1e9}
 \lstinputlisting[style=cpp]{code/Number Theory And Maths/SieveUpto10e9.cc}
 
+\subsection{Matrix Multiplication}
+\lstinputlisting[style=cpp]{code/Number Theory And Maths/MatrixMultiplication.cc}
+
 
 \section{Dynamic Programming}
 \subsection{LCS (Longest \allowbreak Common Subsequence)}
@@ -411,6 +415,9 @@ All about math.
 
 \subsection{SOS (Sum \allowbreak Of Subsets)}
 \lstinputlisting[style=cpp]{code/Dynamic Programming/SOS.cc}
+
+\subsection{MCM (Matrix \allowbreak Chain Multiplication)}
+\lstinputlisting[style=cpp]{code/Dynamic Programming/MCM.cc}
 
 
 \section{Strings}
