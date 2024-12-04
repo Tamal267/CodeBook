@@ -294,6 +294,23 @@ bitset<size>(val).to_string();
    \item $n$th Fibonacci number \(
    	F_n = \frac{\Phi n - ( 1 - \Phi)n} {\sqrt{5}}
    \)
+   
+   \item Stars and Bars \\
+   	Number of solutions of \(
+   		x_1 + x_2 + x_3 + ... + x_k = n
+   	\) is 
+   	\(
+	   	\begin{pmatrix}
+	   		n - 1\\
+	   		k - 1
+	   	\end{pmatrix}
+   	\) where $x_i > 0$ and 
+   	\(
+	   	\begin{pmatrix}
+	   		n + k - 1\\
+	   		k - 1
+	   	\end{pmatrix}
+   	\) where $x_i >= 0$
 \end{itemize}
 
 \section{Graph Theory}
