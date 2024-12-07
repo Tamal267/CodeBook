@@ -4,7 +4,7 @@ int notprime[N];
 
 void sieve() {
   primes.push_back(2);
-  for (int i = 2; i < N; i += 2) {
+  for (int i = 4; i < N; i += 2) {
     notprime[i] = true;
   }
   for (int i = 3; i < N; i += 2) {
