@@ -10,4 +10,4 @@ nnoremap <C-k> :s/^\s*\zs/\/\/ /<CR>:nohl<CR>
 vnoremap <C-l> :s/^\s*\zs\/\/ //<CR>:nohl<CR>
 nnoremap <C-l> :s/^\s*\zs\/\/ //<CR>:nohl<CR>
 autocmd FileType cpp map <F9> :w<CR> :!clear; g++ % -DONPC -o %:r && ./%:r<CR>
-"autocmd FileType cpp map <F9> :w<CR> :!clear; g++ % -o %< && gnome-terminal -- ./%<<CR>
+"autocmd FileType cpp map <F9> :w<CR> :!clear; g++ % -DONPC -o %:t:r.exe && ./%:t:r.exe<CR>
